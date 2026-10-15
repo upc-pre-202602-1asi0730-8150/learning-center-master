@@ -1,59 +1,47 @@
-# OpenParcial202620
+# UrbanFit Sports Center Management Platform
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.2.
+## Overview
 
-## Development server
+Web application for UrbanFit Sports Centers to manage reservations, check the current weather
+and monitor the capacity of each sports center.
 
-To start a local development server, run:
+## Authorship
 
-```bash
-ng serve
-```
+- **Author:** Roberto Gonzales Ayala
+- **Student code:** u202113310
+- **Course:** Desarrollo de Aplicaciones Open Source (1ASI0729) - NRC 7737
+- **Repository:** <https://github.com/USER/REPOSITORY>
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Features
 
-## Code scaffolding
+- Toolbar with custom logo, platform title and EN/ES language switcher.
+- Sidenav (Angular Material) with "Home" and "New Reservation".
+- Home: "My Sports Centers" grid with one summary card per center
+  (participants per reservation, Total Participants and Available Capacity).
+- New Reservation: reactive form with validation. The weather temperature is
+  retrieved automatically from Open-Meteo for the selected sports center.
+- Capacity rule: participants must be greater than 0 and not exceed the available
+  capacity. Capacity is recalculated from fresh data right before saving.
+- If the weather cannot be retrieved, the reservation cannot be created.
+- Page not found view and redirect from `/` to `/home`.
+- English (default) and Spanish interface, with ARIA attributes.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Tech Stack
 
-```bash
-ng generate component component-name
-```
+Angular, TypeScript, Angular Material, Angular Signals, Angular Router,
+HttpClient, ngx-translate, json-server 0.17.4 (fake API) and Open-Meteo (external API).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Architecture
 
-```bash
-ng generate --help
-```
+Domain-driven, layered and component-based. Bounded contexts: `shared`,
+`sports-centers` and `weather`. Each one is organized in `domain`, `application`,
+`infrastructure` and `presentation` (`views` and `components`).
+Patterns: Request/Response, Resource, Assembler, Api, Endpoint and Store.
 
-## Building
+## Configuration
 
-To build the project run:
+1. Install dependencies: `npm install`
+2. Start the fake API: `cd server` and `json-server --watch db.json` (port 3000)
+3. Start the application: `ng serve` and open <http://localhost:4200>
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+URLs and endpoint paths are defined in `src/environments/environment.ts`.
