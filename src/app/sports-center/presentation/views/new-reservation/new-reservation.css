@@ -1,0 +1,22 @@
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 480px;
+}
+
+.weather {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 32px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.save-error {
+  color: var(--mat-sys-error, #b3261e);
+}

@@ -1,1 +1,9 @@
-<h1>Home</h1>
+<section aria-labelledby="home-title">
+  <h1 id="home-title">{{ 'home.title' | translate }}</h1>
+  <p>{{ 'home.subtitle' | translate }}</p>
+
+  <section aria-labelledby="sports-centers-title">
+    <h2 id="sports-centers-title">{{ 'home.my-sports-centers' | translate }}</h2>
+    <app-my-sports-centers />
+  </section>
+</section>

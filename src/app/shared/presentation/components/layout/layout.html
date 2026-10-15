@@ -3,9 +3,9 @@
     <mat-icon>menu</mat-icon>
   </button>
   <img class="logo" src="/assets/logo.png" alt="UrbanFit sports center logo"/>
-  <span class="title">UrbanFit Center Management Platform</span>
+  <span class="title">{{ 'toolbar.app-title' | translate }}</span>
   <span class="spacer"></span>
-  <!-- Aquí irá el selector EN/ES (incremento 2) -->
+  <app-language-switcher />
 </mat-toolbar>
 
 <mat-sidenav-container class="container">

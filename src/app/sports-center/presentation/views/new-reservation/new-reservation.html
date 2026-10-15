@@ -1,1 +1,59 @@
-<h1>New Reservation</h1>
+<section aria-labelledby="new-reservation-title">
+  <h1 id="new-reservation-title">{{ 'new-reservation.title' | translate }}</h1>
+  <h2>{{ 'new-reservation.subtitle' | translate }}</h2>
+
+  <form class="reservation-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'new-reservation.activity-type' | translate }}</mat-label>
+      <mat-select formControlName="activityType" (selectionChange)="onActivityTypeChange($event.value)">
+        @for (type of activityTypes; track type) {
+          <mat-option [value]="type">{{ ('activity-types.' + type) | translate }}</mat-option>
+        }
+      </mat-select>
+      <mat-error>{{ 'new-reservation.error-activity-required' | translate }}</mat-error>
+    </mat-form-field>
+
+    <div class="weather" aria-live="polite">
+      @if (weatherStore.loading()) {
+        <mat-spinner diameter="20" />
+        <span>{{ 'new-reservation.weather-loading' | translate }}</span>
+      } @else if (weatherStore.error()) {
+        <p role="alert">{{ 'new-reservation.weather-error' | translate }}</p>
+      } @else if (weatherStore.reading(); as reading) {
+        <p>{{ 'new-reservation.weather-temperature' | translate }}: <strong>{{ reading.temperature }} {{ reading.unit }}</strong></p>
+      }
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'new-reservation.participant-name' | translate }}</mat-label>
+      <input matInput formControlName="participantName" autocomplete="off" />
+      <mat-error>{{ 'new-reservation.error-name-required' | translate }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'new-reservation.participants' | translate }}</mat-label>
+      <input matInput type="number" min="1" formControlName="participants" />
+      @if (availableCapacity() !== null) {
+        <mat-hint>{{ 'new-reservation.available-capacity' | translate }}: {{ availableCapacity() }}</mat-hint>
+      }
+      @if (form.controls.participants.hasError('exceedsCapacity')) {
+        <mat-error>{{ 'new-reservation.error-participants-capacity' | translate }}</mat-error>
+      } @else {
+        <mat-error>{{ 'new-reservation.error-participants-invalid' | translate }}</mat-error>
+      }
+    </mat-form-field>
+
+    @if (saveErrorKey(); as errorKey) {
+      <p role="alert" class="save-error">{{ errorKey | translate }}</p>
+    }
+
+    <div class="actions">
+      <button mat-flat-button type="submit" [disabled]="cannotCreate">
+        {{ (saving() ? 'new-reservation.saving' : 'new-reservation.create') | translate }}
+      </button>
+      <button mat-stroked-button type="button" (click)="onCancel()">
+        {{ 'new-reservation.cancel' | translate }}
+      </button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,22 @@
+<mat-card appearance="outlined" class="summary-card">
+  <mat-card-header>
+    <mat-card-title>{{ occupancy().sportsCenter.name }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="summary-content">
+    @if (occupancy().isEmpty) {
+      <p>{{ 'sports-center-summary.empty' | translate }}</p>
+    } @else {
+      <ul>
+        @for (reservation of occupancy().reservations; track reservation.id) {
+          <li>{{ reservation.participantName }}: {{ reservation.participants }}</li>
+        }
+      </ul>
+    }
+  </mat-card-content>
+
+  <mat-card-footer class="summary-footer">
+    <span>{{ 'sports-center-summary.total-participants' | translate }}: <strong>{{ occupancy().totalParticipants }}</strong></span>
+    <span>{{ 'sports-center-summary.available-capacity' | translate }}: <strong>{{ occupancy().availableCapacity }}</strong></span>
+  </mat-card-footer>
+</mat-card>

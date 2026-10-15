@@ -1,0 +1,8 @@
+<mat-button-toggle-group
+  [value]="currentLang() ?? 'en'"
+  (change)="changeLanguage($event)"
+  [attr.aria-label]="'toolbar.language' | translate">
+  @for (lang of languages; track lang) {
+    <mat-button-toggle [value]="lang">{{ lang.toUpperCase() }}</mat-button-toggle>
+  }
+</mat-button-toggle-group>

@@ -1,0 +1,62 @@
+{
+  "toolbar": {
+    "app-title": "UrbanFit Sports Center Management Platform",
+    "logo-alt": "UrbanFit Sports Centers logo",
+    "toggle-menu": "Toggle navigation menu",
+    "language": "Language"
+  },
+  "nav": {
+    "main-navigation": "Main navigation",
+    "home": "Home",
+    "new-reservation": "New Reservation"
+  },
+  "home": {
+    "title": "Home",
+    "subtitle": "Smart Reservations and Capacity Management for Sports Centers.",
+    "my-sports-centers": "My Sports Centers"
+  },
+
+  "page-not-found": {
+    "title": "Page Not Found",
+    "message": "The route {{path}} was not found.",
+    "back-home": "Back to Home"
+  },
+
+  "sports-center-summary": {
+    "empty": "Empty",
+    "total-participants": "Total Participants",
+    "available-capacity": "Available Capacity"
+  },
+  "my-sports-centers": {
+    "load-error": "Sports centers could not be loaded."
+  },
+
+
+  "activity-types": {
+    "fitness": "Fitness",
+    "yoga": "Yoga",
+    "swimming": "Swimming",
+    "cycling": "Cycling"
+  },
+
+  "new-reservation": {
+    "title": "New Reservation",
+    "subtitle": "Register Participants at Your Sports Center",
+    "activity-type": "Activity Type",
+    "participant-name": "Participant Name",
+    "participants": "Participants",
+    "available-capacity": "Available capacity",
+    "create": "Create",
+    "cancel": "Cancel",
+    "saving": "Saving...",
+    "weather-loading": "Checking the weather...",
+    "weather-temperature": "Current temperature",
+    "weather-error": "The weather could not be retrieved. The reservation cannot be created until it is available.",
+    "error-activity-required": "Select an activity.",
+    "error-name-required": "Enter the participant name.",
+    "error-participants-invalid": "Enter a whole number greater than 0.",
+    "error-participants-capacity": "The participants exceed the available capacity.",
+    "error-capacity": "There is not enough capacity left. Review the number of participants.",
+    "error-save": "The reservation could not be saved. Please try again."
+  }
+}

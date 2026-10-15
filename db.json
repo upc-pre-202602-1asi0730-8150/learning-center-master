@@ -69,6 +69,15 @@
       "participants": 30,
       "weatherTemperature": 21.2,
       "reservedAt": "2026-10-10T12:00:00-05:00"
+    },
+    {
+      "sportsCenterId": 1,
+      "activityType": "fitness",
+      "participantName": "sanse",
+      "participants": 3,
+      "weatherTemperature": 20.9,
+      "reservedAt": "2026-10-15T07:25:43.969Z",
+      "id": 5
     }
   ]
 }

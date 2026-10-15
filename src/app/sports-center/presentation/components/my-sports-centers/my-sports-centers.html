@@ -1,0 +1,11 @@
+@if (store.error()) {
+  <p role="alert">{{ 'my-sports-centers.load-error' | translate }}</p>
+}
+
+<mat-grid-list cols="2" rowHeight="300px" gutterSize="16px">
+  @for (occupancy of store.occupancies(); track occupancy.sportsCenter.id) {
+    <mat-grid-tile>
+      <app-sports-center-summary [occupancy]="occupancy" />
+    </mat-grid-tile>
+  }
+</mat-grid-list>

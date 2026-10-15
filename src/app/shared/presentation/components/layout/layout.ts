@@ -6,6 +6,8 @@ import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/mat
 import { MatListItem, MatNavList } from '@angular/material/list';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
+import { LanguageSwitcher } from '../language-switcher/language-switcher';
 
 @Component({
   imports: [
@@ -21,6 +23,8 @@ import { NgOptimizedImage } from '@angular/common';
     MatSidenavContent,
     RouterOutlet,
     NgOptimizedImage,
+    TranslatePipe,
+    LanguageSwitcher,
   ],
   selector: 'app-layout',
   styleUrl: './layout.css',
