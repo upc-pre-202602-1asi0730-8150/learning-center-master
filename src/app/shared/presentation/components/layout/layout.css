@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.toolbar {
+  gap: 12px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.container {
+  flex: 1;
+}
+
+mat-sidenav {
+  width: 240px;
+}
+
+.active-link {
+  font-weight: 600;
+}
+
+.content {
+  padding: 24px;
+}
