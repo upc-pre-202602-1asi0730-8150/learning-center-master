@@ -53,3 +53,55 @@ Patterns: Request/Response, Resource, Assembler, Api, Endpoint and Store.
 3. Start the application: `ng serve` and open <http://localhost:4200>
 
 URLs and endpoint paths are defined in `src/environments/environment.ts`.
+
+
+
+<br>
+<br>
+<br>
+
+# Orden de desarrollo - UrbanFit (Angular)
+
+Un commit por paso. Después de cada paso la app debe compilar.
+
+1. **Proyecto y API**
+  - `ng new`, `ng add @angular/material`, instalar ngx-translate y `json-server@0.17.4`, `ng generate environments`.
+  - `server/db.json`, script `api`, URLs en `environment.ts`, tema, logo propio.
+  - Carpetas: `shared`, `sports-centers`, `weather` (cada una con `domain`, `application`, `infrastructure`, `presentation`).
+
+2. **Layout y rutas**
+  - `ng g c` de `layout`, `home`, `new-reservation`.
+  - Toolbar (logo, título), sidenav, `router-outlet`.
+  - Rutas: `home`, `reservations/new` (hija), `''` → `home`.
+
+3. **i18n**
+  - `en.json` y `es.json` en `public/assets/i18n/`.
+  - `app.config.ts`: `provideHttpClient` y `provideTranslateService`.
+  - `language-switcher` (EN/ES) y pipe `translate` en las vistas.
+
+4. **Page not found**
+  - Muestra la ruta no encontrada y botón a Home.
+  - Ruta `**` al final.
+
+5. **sports-centers: datos y cards**
+  - `shared`: `base-assembler`, `base-api-endpoint`.
+  - Dominio: `activity-type`, `sports-center`, `reservation`, `sports-center-occupancy`.
+  - Infraestructura: resources, responses, assemblers, endpoints, api.
+  - Store con signals (`occupancies`, `loadAll`).
+  - Componentes `sports-center-summary` y `my-sports-centers` (grid de 2 columnas) en Home.
+
+6. **weather**
+  - Entidad, resource, response, assembler, endpoint, api, store.
+  - En `new-reservation`: select de actividad → pide el clima con las coordenadas del centro.
+
+7. **Formulario y creación**
+  - `reservation-draft`, `capacity-exceeded.error`, `create-reservation.request`.
+  - Store: re-consulta reservas → recalcula capacidad → POST.
+  - Validaciones; Create bloqueado sin clima válido; Create → `/home` solo si guardó; Cancel → `/home`.
+
+8. **Cierre**
+  - README en inglés con Authorship y URL del repo.
+  - TSDoc (`@summary`, `@author`) en todos los `.ts`.
+  - ARIA, logo propio, sin `node_modules`, zip `ea<nrc>u<código>.zip`.
+
+**Errores frecuentes:** `styleUrl` con la extensión real (`.css`/`.scss`), archivos en `public/assets/`, reiniciar `ng serve` al tocar `public` o `angular.json`, `TranslatePipe` en cada componente que traduce, dos terminales (`npm run api` y `ng serve`).
