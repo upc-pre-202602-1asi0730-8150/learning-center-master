@@ -5,6 +5,7 @@ import { MatIconButton } from '@angular/material/button';
 import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
 import { MatListItem, MatNavList } from '@angular/material/list';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   imports: [
@@ -19,6 +20,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     RouterLinkActive,
     MatSidenavContent,
     RouterOutlet,
+    NgOptimizedImage,
   ],
   selector: 'app-layout',
   styleUrl: './layout.css',
