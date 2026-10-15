@@ -1,3 +1,11 @@
+# ACME Learning Center Application (`learning-center`)
+
+## Overview
+`learning-center` is an Angular 22 client application for managing learning information in the ACME Learning Center domain. The current implementation focuses on maintaining categories and courses, with the codebase organized around Domain-Driven Design (DDD) bounded contexts and layered responsibilities.
+
+In development mode, the application consumes a local fake API exposed through `json-server`. The frontend is configured to call `http://localhost:3000/api/v1` for learning resources.
+
+
 # UrbanFit Sports Center Management Platform
 
 ## Overview
